@@ -1,0 +1,20 @@
+{
+  "bin": {
+    "ytcut": "./index.js"
+  },
+  "name": "youtube-dl-cutter",
+  "version": "0.1.0",
+  "description": "Download a Youtube-file as mp3, and crop it as you like",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha __test__/tests.js"
+  },
+  "author": "Andreas Bernacca",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "^1.0.9"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
