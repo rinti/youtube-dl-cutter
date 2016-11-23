@@ -32,6 +32,20 @@ describe('ytcut', (done) => {
     execSync('rm test.mp3')
   })
 
+  it('should be possible to save a file with spaces in it @fix', () => {
+    execSync(`ytcut -u ${test_url} -o "test lorem ipsum"`)
+    expect(fs.existsSync('test lorem ipsum.mp3')).to.equal(true) 
+    expect(fs.existsSync('test lorem ipsumtemp.mp3')).to.equal(false) 
+
+    let duration = execSync("ffmpeg -i \"test lorem ipsum.mp3\"  2>&1 | grep Duration | awk '{print $2}' | tr -d ,")
+
+    // 00:00:10.559 -> 10 
+    let secs = parseInt(Math.round(duration.toString().split(':')[2]), 10)
+    expect(secs).to.equal(10)
+
+    execSync('rm "test lorem ipsum.mp3"')
+  })
+
   it('and the cut file should be cut', () => {
     execSync(`ytcut -u ${test_url} -o test_cut --from 5s --to 10s`)
     expect(fs.existsSync('test_cut.mp3')).to.equal(true) 

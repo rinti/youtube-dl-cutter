@@ -20,10 +20,10 @@ if(args.url) {
 
 
 if(from_secs && to_secs) {
-  execSync(`ffmpeg -ss ${from_secs} -t ${to_secs} -i ${file} -acodec copy ${output_filename}`)
+  execSync(`ffmpeg -ss ${from_secs} -t ${to_secs} -i "${file}" -acodec copy "${output_filename}"`)
 }
 
 // remove the downloaded file, and replace it with the cut file.
 if(args.url && (from_secs || to_secs)) {
-  execSync(`rm ${file} && mv ${output_filename} ${file}`)
+  execSync(`rm "${file}" && mv "${output_filename}" "${file}"`)
 }
