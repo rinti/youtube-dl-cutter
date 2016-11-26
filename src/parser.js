@@ -1,7 +1,7 @@
 const ArgumentParser = require('argparse').ArgumentParser
 
 var parser = new ArgumentParser({
-  version: '0.1.0',
+  version: '0.2.0',
   addHelp: true,
   description: 'youtube cutter'
 });

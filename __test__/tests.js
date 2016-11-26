@@ -32,7 +32,7 @@ describe('ytcut', (done) => {
     execSync('rm test.mp3')
   })
 
-  it('should be possible to save a file with spaces in it @fix', () => {
+  it('should be possible to save a file with spaces in it', () => {
     execSync(`ytcut -u ${test_url} -o "test lorem ipsum"`)
     expect(fs.existsSync('test lorem ipsum.mp3')).to.equal(true) 
     expect(fs.existsSync('test lorem ipsumtemp.mp3')).to.equal(false) 
